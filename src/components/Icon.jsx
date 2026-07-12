@@ -1,0 +1,6 @@
+const paths = {
+  menu: 'M4 6h16M4 12h16M4 18h16', panel: 'M4 4h16v16H4zM9 4v16M6 8h1M6 12h1M6 16h1', arrowLeft: 'M19 12H5M12 19l-7-7 7-7', close: 'M6 6l12 12M18 6L6 18', dashboard: 'M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z', assets: 'M4 7l8-4 8 4-8 4zM4 7v10l8 4 8-4V7M12 11v10', students: 'M16 20v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 10a4 4 0 100-8 4 4 0 000 8zM22 20v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75', bell: 'M18 8a6 6 0 00-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4', search: 'M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.35-4.35', plus: 'M12 5v14M5 12h14', down: 'M6 9l6 6 6-6', check: 'M20 6L9 17l-5-5', alert: 'M10.3 3.6L2.2 17.5A2 2 0 004 20.5h16a2 2 0 001.8-3L13.7 3.6a2 2 0 00-3.4 0zM12 9v4M12 17h.01', more: 'M5 12h.01M12 12h.01M19 12h.01', arrow: 'M5 12h14M13 6l6 6-6 6', download: 'M12 3v12M7 10l5 5 5-5M5 21h14', filter: 'M4 5h16M7 12h10M10 19h4', user: 'M20 21a8 8 0 00-16 0M12 13a5 5 0 100-10 5 5 0 000 10z', clock: 'M12 7v5l3 2'
+}
+export default function Icon({ name, size = 20, stroke = 1.9 }) {
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[name] || paths.alert} /></svg>
+}
