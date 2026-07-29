@@ -1,7 +1,7 @@
 import { url } from "../../Config"
 
-export const saveAssets=async(data)=>{
-    const response=await fetch(`${url}/asset/add`,{
+export const saveRequest=async(data)=>{
+    const response=await fetch(`${url}/request/add`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({...data})
@@ -10,8 +10,8 @@ export const saveAssets=async(data)=>{
     return result;
 
 }
-export const getAssets=async()=>{
-    const response=await fetch(`${url}/asset/all`,{
+export const getRequest=async()=>{
+    const response=await fetch(`${url}/request/all`,{
         method:"GET",
         headers:{"Content-Type":"application/json"},
         
@@ -20,8 +20,8 @@ export const getAssets=async()=>{
     return result;
 
 }
-export const getAssetById=async(id)=>{
-    const response=await fetch(`${url}/asset/${id}`,{
+export const getRequestById=async(id)=>{
+    const response=await fetch(`${url}/request/${id}`,{
         method:"GET",
         headers:{"Content-Type":"application/json"},
         
