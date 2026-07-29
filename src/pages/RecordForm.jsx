@@ -1,22 +1,29 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PageHeader from "../components/PageHeader";
 import Button from "../components/Button";
 import Icon from "../components/Icon";
-import PageHeader from "../components/PageHeader";
 import { fields } from "../data/records";
-export default function RecordForm({ type, notify }) {
+export default function RecordForm({ type, notify, action }) {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const title = type === "asset" ? "Asset" : "Student";
   const change = (name, value) => setValues({ ...values, [name]: value });
-  const submit = (e) => {
+  const submit = async(e) => {
     e.preventDefault();
     const invalid = fields[type]
       .filter((f) => f.required && !values[f.name])
       .reduce((all, f) => ({ ...all, [f.name]: "This field is required" }), {});
     setErrors(invalid);
     if (Object.keys(invalid).length) return;
+    console.log(values)
+    const response=await action(values);
+
+    console.log(response);
+    if(!response.ok){
+        console.log(response)
+    }
     notify({
       title: `${title} saved successfully`,
       text: "Your new record is ready to use.",
@@ -67,6 +74,7 @@ export default function RecordForm({ type, notify }) {
                 />
               ) : (
                 <input
+                  type={field.type}
                   value={values[field.name] || ""}
                   placeholder={field.placeholder}
                   onChange={(e) => change(field.name, e.target.value)}
