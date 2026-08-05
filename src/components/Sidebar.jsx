@@ -5,6 +5,7 @@ import Icon from './Icon'
 
 function NavGroup({ item, onNavigate }) {
   const { pathname } = useLocation()
+  console.log(pathname)
   const active = item.children?.some(child => pathname === child.path)
   const [open, setOpen] = useState(active)
   if (!item.children) return <NavLink to={item.path} onClick={onNavigate} className={({ isActive }) => `link primary-link ${isActive ? 'active' : ''}`}><Icon name={item.icon} /><span>{item.label}</span></NavLink>
